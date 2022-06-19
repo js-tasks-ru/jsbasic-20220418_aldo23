@@ -4,7 +4,7 @@ export default class ProductCard {
   constructor(product) {
     this.product = product;
     this.elem = this.render();
-    this.elem.addEventListener('click', this.onClick);
+    this.elem.addEventListener('click', this.addProduct);
   }
 
   render() {
@@ -12,7 +12,7 @@ export default class ProductCard {
       <div class="card">
         <div class="card__top">
             <img src="/assets/images/products/${this.product.image}" class="card__image" alt="product">
-            <span class="card__price">€${this.product.price.toFixed(2)}</span>
+            <span class="card__price">&euro;${this.product.price.toFixed(2)}</span>
         </div>
         <div class="card__body">
             <div class="card__title">${this.product.name}</div>
@@ -24,7 +24,7 @@ export default class ProductCard {
     `);
   }
 
-  onClick = (event) => {
+  addProduct = (event) => {
     if(event.target.closest('.card__button')) {
       let productAddEvent = new CustomEvent('product-add', {
         detail: this.product.id,

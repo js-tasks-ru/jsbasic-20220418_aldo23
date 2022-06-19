@@ -19,7 +19,7 @@ export default class ProductGrid {
     let prodGridInner = this.elem.querySelector('.products-grid__inner');
     for(let product of this.products) {
       let card = new ProductCard(product);
-      prodGridInner.insertAdjacentHTML('beforeend', card.elem.outerHTML);
+      prodGridInner.append(card.elem);
     }
   }
 
@@ -59,7 +59,7 @@ export default class ProductGrid {
     // Формируем products-grid__inner
     for(let product of filterProducts) {
       let card = new ProductCard(product);
-      prodGridInner.insertAdjacentHTML('beforeend', card.elem.outerHTML);
+      prodGridInner.append(card.elem);
     }
   }
 }
